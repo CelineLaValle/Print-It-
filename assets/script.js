@@ -16,3 +16,18 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+
+    // Sélectionnez les flèches par leur classe commune
+    const arrow = document.querySelectorAll('.arrow');
+
+    // Parcourez chaque flèche et ajoutez un event listener
+    arrow.forEach(function(fleche) {
+        fleche.addEventListener('click', function(event) {
+            // Vérifiez si la classe de la flèche est 'arrow_left' ou 'arrow_right'
+            if (fleche.classList.contains('arrow_left')) {
+                console.log("Clic sur la flèche gauche");
+            } else if (fleche.classList.contains('arrow_right')) {
+                console.log("Clic sur la flèche gauche");
+            }
+		});
+	});
