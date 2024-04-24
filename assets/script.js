@@ -17,6 +17,19 @@ const slides = [
 	}
 ]
 
+
+const dotsContainer = document.querySelector('.dots');
+
+// Ajoutez un point pour chaque diapositive
+slides.forEach(function(slide, index) {
+	const dot = document.createElement('div');
+	dot.classList.add('dot');
+	if (index === 0) {
+		dot.classList.add('dot_selected'); // Ajoute la classe pour le point actif initial
+	}
+	dotsContainer.appendChild(dot);
+});
+
     // Sélectionnez les flèches par leur classe commune
     const arrow = document.querySelectorAll('.arrow');
 
