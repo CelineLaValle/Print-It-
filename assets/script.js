@@ -44,3 +44,24 @@ slides.forEach(function(slide, index) {
             }
 		});
 	});
+
+	function updateActiveDot(index) {
+        dots.forEach(function(dot, dotIndex) {
+            if (dotIndex === index) {
+                dot.classList.add('dot_selected'); // Ajoute la classe dot_selected au bullet point actif
+            } else {
+                dot.classList.remove('dot_selected'); // Supprime la classe dot_selected des autres bullet points
+            }
+        });
+    }
+
+	function updateSlide(index) {
+        const slide = slides[index]; // Sélectionne la diapositive correspondant à l'index actuel
+        const image = document.querySelector('.banner-img'); // Sélectionne l'élément img avec la classe "banner-img"
+        const tagLine = document.querySelector('#banner p'); // Sélectionne l'élément p à l'intérieur de l'élément avec l'ID "banner"
+
+        // Met à jour l'image en changeant son attribut src avec le chemin de l'image de la diapositive sélectionnée
+        image.src = `./assets/images/slideshow/${slide.image}`;
+        // Met à jour le texte en remplaçant le contenu HTML de l'élément p avec la tagLine de la diapositive sélectionnée
+        tagLine.innerHTML = slide.tagLine;
+    }
