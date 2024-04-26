@@ -41,10 +41,17 @@ slides.forEach(function(slide, index) {
         fleche.addEventListener('click', function(event) {
             // Vérifiez si la classe de la flèche est 'arrow_left' ou 'arrow_right'
             if (fleche.classList.contains('arrow_left')) {
-                currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length; // Calcul de l'index précédent
+                currentSlideIndex = (currentSlideIndex - 1)
+				if (currentSlideIndex < 0) {
+					currentSlideIndex = currentSlideIndex + slides.length
+				}
+				
             } else if (fleche.classList.contains('arrow_right')) {
-                currentSlideIndex = (currentSlideIndex + 1) % slides.length; // Calcul de l'index suivant
+                currentSlideIndex = (currentSlideIndex + 1)
+				if (currentSlideIndex >= slides.length) {
+					currentSlideIndex = currentSlideIndex - slides.length
             }
+		}
 			 // Mettre à jour le bullet point actif
 			 updateActiveDot(currentSlideIndex);
 			 // Mettre à jour l'image et le texte correspondant
